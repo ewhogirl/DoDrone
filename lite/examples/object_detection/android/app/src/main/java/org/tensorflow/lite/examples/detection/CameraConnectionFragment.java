@@ -44,6 +44,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
@@ -118,6 +119,7 @@ public class CameraConnectionFragment extends Fragment {
   private CameraDevice cameraDevice;
   /** The rotation in degrees of the camera sensor from the display. */
   private Integer sensorOrientation;
+  private Integer deviceOrientation;
   /** The {@link Size} of camera preview. */
   private Size previewSize;
   /** An additional thread for running tasks that shouldn't block the UI. */
@@ -227,22 +229,22 @@ public class CameraConnectionFragment extends Fragment {
       }
     }
 
-    LOGGER.i("Desired size: " + desiredSize + ", min size: " + minSize + "x" + minSize);
-    LOGGER.i("Valid preview sizes: [" + TextUtils.join(", ", bigEnough) + "]");
-    LOGGER.i("Rejected preview sizes: [" + TextUtils.join(", ", tooSmall) + "]");
+    //LOGGER.i("Desired size: " + desiredSize + ", min size: " + minSize + "x" + minSize);
+    //LOGGER.i("Valid preview sizes: [" + TextUtils.join(", ", bigEnough) + "]");
+    //LOGGER.i("Rejected preview sizes: [" + TextUtils.join(", ", tooSmall) + "]");
 
     if (exactSizeFound) {
-      LOGGER.i("Exact size match found.");
+      //LOGGER.i("Exact size match found.");
       return desiredSize;
     }
 
     // Pick the smallest of those, assuming we found any
     if (bigEnough.size() > 0) {
       final Size chosenSize = Collections.min(bigEnough, new CompareSizesByArea());
-      LOGGER.i("Chosen size: " + chosenSize.getWidth() + "x" + chosenSize.getHeight());
+      //LOGGER.i("Chosen size: " + chosenSize.getWidth() + "x" + chosenSize.getHeight());
       return chosenSize;
     } else {
-      LOGGER.e("Couldn't find any suitable preview size");
+      //LOGGER.e("Couldn't find any suitable preview size");
       return choices[0];
     }
   }
@@ -326,7 +328,11 @@ public class CameraConnectionFragment extends Fragment {
       final StreamConfigurationMap map =
           characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
 
+      //origin
       sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+      //sensorOrientation = 270;
+      Log.d("orientLog", "sensorOrientation: " + sensorOrientation);
+
 
       // Danger, W.R.! Attempting to use too large a preview size could  exceed the camera
       // bus' bandwidth limitation, resulting in gorgeous previews but the storage of
@@ -339,16 +345,20 @@ public class CameraConnectionFragment extends Fragment {
 
       // We fit the aspect ratio of TextureView to the size of preview we picked.
       final int orientation = getResources().getConfiguration().orientation;
+      Log.d("orientLog", "orient: "+orientation);
       if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
         textureView.setAspectRatio(previewSize.getWidth(), previewSize.getHeight());
+        Log.d("orientLog", "LANDSCAPE orient: "+orientation);
+
       } else {
         textureView.setAspectRatio(previewSize.getHeight(), previewSize.getWidth());
+        Log.d("orientLog", "PORTRAIT orient: "+orientation);
       }
     } catch (final CameraAccessException e) {
-      LOGGER.e(e, "Exception!");
+      //LOGGER.e(e, "Exception!");
     } catch (final NullPointerException e) {
       // Currently an NPE is thrown when the Camera2API is used but not supported on the
-      // device this code runs.
+      // device this code runs.f
       ErrorDialog.newInstance(getString(R.string.tfe_od_camera_error))
           .show(getChildFragmentManager(), FRAGMENT_DIALOG);
       throw new IllegalStateException(getString(R.string.tfe_od_camera_error));
@@ -369,7 +379,7 @@ public class CameraConnectionFragment extends Fragment {
       }
       manager.openCamera(cameraId, stateCallback, backgroundHandler);
     } catch (final CameraAccessException e) {
-      LOGGER.e(e, "Exception!");
+      //LOGGER.e(e, "Exception!");
     } catch (final InterruptedException e) {
       throw new RuntimeException("Interrupted while trying to lock camera opening.", e);
     }
@@ -413,7 +423,7 @@ public class CameraConnectionFragment extends Fragment {
       backgroundThread = null;
       backgroundHandler = null;
     } catch (final InterruptedException e) {
-      LOGGER.e(e, "Exception!");
+      //LOGGER.e(e, "Exception!");
     }
   }
 
@@ -433,7 +443,7 @@ public class CameraConnectionFragment extends Fragment {
       previewRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
       previewRequestBuilder.addTarget(surface);
 
-      LOGGER.i("Opening camera preview: " + previewSize.getWidth() + "x" + previewSize.getHeight());
+      //LOGGER.i("Opening camera preview: " + previewSize.getWidth() + "x" + previewSize.getHeight());
 
       // Create the reader for the preview frames.
       previewReader =
@@ -471,7 +481,7 @@ public class CameraConnectionFragment extends Fragment {
                 captureSession.setRepeatingRequest(
                     previewRequest, captureCallback, backgroundHandler);
               } catch (final CameraAccessException e) {
-                LOGGER.e(e, "Exception!");
+                //LOGGER.e(e, "Exception!");
               }
             }
 
@@ -482,7 +492,7 @@ public class CameraConnectionFragment extends Fragment {
           },
           null);
     } catch (final CameraAccessException e) {
-      LOGGER.e(e, "Exception!");
+      //LOGGER.e(e, "Exception!");
     }
   }
 
@@ -505,6 +515,7 @@ public class CameraConnectionFragment extends Fragment {
     final RectF bufferRect = new RectF(0, 0, previewSize.getHeight(), previewSize.getWidth());
     final float centerX = viewRect.centerX();
     final float centerY = viewRect.centerY();
+
     if (Surface.ROTATION_90 == rotation || Surface.ROTATION_270 == rotation) {
       bufferRect.offset(centerX - bufferRect.centerX(), centerY - bufferRect.centerY());
       matrix.setRectToRect(viewRect, bufferRect, Matrix.ScaleToFit.FILL);

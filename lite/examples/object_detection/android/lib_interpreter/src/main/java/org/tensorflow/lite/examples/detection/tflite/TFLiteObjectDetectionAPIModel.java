@@ -17,6 +17,7 @@ package org.tensorflow.lite.examples.detection.tflite;
 
 import static java.lang.Math.min;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -109,6 +110,7 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
    * @param inputSize The size of image input
    * @param isQuantized Boolean representing model is quantized or not
    */
+  @SuppressLint("LongLogTag")
   public static Detector create(
       final Context context,
       final String modelFilename,
@@ -153,6 +155,8 @@ public class TFLiteObjectDetectionAPIModel implements Detector {
       numBytesPerChannel = 4; // Floating point
     }
     d.imgData = ByteBuffer.allocateDirect(1 * d.inputSize * d.inputSize * 3 * numBytesPerChannel);
+    Log.d("rayun", "inputsize : " + d.inputSize);
+    Log.d("rayun", "numBytesPerChannel : " + numBytesPerChannel);
     d.imgData.order(ByteOrder.nativeOrder());
     d.intValues = new int[d.inputSize * d.inputSize];
 

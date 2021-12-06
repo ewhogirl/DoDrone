@@ -24,7 +24,9 @@ import android.graphics.Paint.Cap;
 import android.graphics.Paint.Join;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.util.TypedValue;
 import java.util.LinkedList;
@@ -36,6 +38,7 @@ import org.tensorflow.lite.examples.detection.env.Logger;
 import org.tensorflow.lite.examples.detection.tflite.Detector.Recognition;
 
 /** A tracker that handles non-max suppression and matches existing objects to new detections. */
+
 public class MultiBoxTracker {
   private static final float TEXT_SIZE_DIP = 18;
   private static final float MIN_SIZE = 16.0f;
@@ -69,9 +72,10 @@ public class MultiBoxTracker {
   private int sensorOrientation;
 
   public MultiBoxTracker(final Context context) {
-    for (final int color : COLORS) {
-      availableColors.add(color);
-    }
+    //for (final int color : COLORS) {
+    //  availableColors.add(color);
+    //}
+    availableColors.add(Color.BLUE);
 
     boxPaint.setColor(Color.RED);
     boxPaint.setStyle(Style.STROKE);
@@ -87,7 +91,8 @@ public class MultiBoxTracker {
   }
 
   public synchronized void setFrameConfiguration(
-      final int width, final int height, final int sensorOrientation) {
+      final int width, final int height, final int sensorOrientation)
+  {
     frameWidth = width;
     frameHeight = height;
     this.sensorOrientation = sensorOrientation;
@@ -132,8 +137,14 @@ public class MultiBoxTracker {
             frameHeight,
             (int) (multiplier * (rotated ? frameHeight : frameWidth)),
             (int) (multiplier * (rotated ? frameWidth : frameHeight)),
-            sensorOrientation,
+                sensorOrientation,
+                //(sensorOrientation+(-90)+360)%360,
             false);
+    //origin
+    //sensorOrientation
+    //(sensorOrientation+(-90)+360)%360
+
+
     for (final TrackedRecognition recognition : trackedObjects) {
       final RectF trackedPos = new RectF(recognition.location);
 
@@ -149,6 +160,9 @@ public class MultiBoxTracker {
               : String.format("%.2f", (100 * recognition.detectionConfidence));
       //            borderedText.drawText(canvas, trackedPos.left + cornerSize, trackedPos.top,
       // labelString);
+      //결과 출력
+      Log.d("hand result", "hand detection : " + labelString);
+      Log.d("hand result", "recongition : " + recognition.title);
       borderedText.drawText(
           canvas, trackedPos.left + cornerSize, trackedPos.top, labelString + "%", boxPaint);
     }

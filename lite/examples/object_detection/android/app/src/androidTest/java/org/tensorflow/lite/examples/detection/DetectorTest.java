@@ -50,8 +50,9 @@ public class DetectorTest {
 
   private static final int MODEL_INPUT_SIZE = 300;
   private static final boolean IS_MODEL_QUANTIZED = true;
-  private static final String MODEL_FILE = "detect.tflite";
-  private static final String LABELS_FILE = "labelmap.txt";
+  private static final String MODEL_FILE = "v4_model.tflite";
+  //private static final String MODEL_FILE = "v3_label_model.tflite";
+  private static final String LABELS_FILE = "labelmap2.txt";
   private static final Size IMAGE_SIZE = new Size(640, 480);
 
   private Detector detector;

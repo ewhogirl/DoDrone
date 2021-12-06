@@ -16,6 +16,7 @@ package org.tensorflow.lite.examples.detection;
  * limitations under the License.
  */
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
@@ -23,6 +24,7 @@ import android.hardware.Camera.CameraInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
@@ -169,7 +171,11 @@ public class LegacyCameraConnectionFragment extends Fragment {
               CameraConnectionFragment.chooseOptimalSize(
                       sizes, desiredSize.getWidth(), desiredSize.getHeight());
       parameters.setPreviewSize(previewSize.getWidth(), previewSize.getHeight());
+      //camera.setDisplayOrientation(0);
+      //원본
+      //origin
       camera.setDisplayOrientation(90);
+      Log.d("orientLog", " ");
       camera.setParameters(parameters);
       camera.setPreviewTexture(availableSurfaceTexture);
     } catch (IOException exception) {

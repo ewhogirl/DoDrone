@@ -49,8 +49,10 @@ public class AutoFitTextureView extends TextureView {
     if (width < 0 || height < 0) {
       throw new IllegalArgumentException("Size cannot be negative.");
     }
-    ratioWidth = width;
-    ratioHeight = height;
+    //ratioWidth = width*3;
+    //ratioHeight = height*2;
+    ratioWidth = width*2;
+    ratioHeight = height*2;
     requestLayout();
   }
 
@@ -62,10 +64,10 @@ public class AutoFitTextureView extends TextureView {
     if (0 == ratioWidth || 0 == ratioHeight) {
       setMeasuredDimension(width, height);
     } else {
-      if (width < height * ratioWidth / ratioHeight) {
+      if (width < height * ratioWidth*2 / ratioHeight) {
         setMeasuredDimension(width, width * ratioHeight / ratioWidth);
       } else {
-        setMeasuredDimension(height * ratioWidth / ratioHeight, height);
+        setMeasuredDimension(height * ratioWidth*2 / ratioHeight, height);
       }
     }
   }
