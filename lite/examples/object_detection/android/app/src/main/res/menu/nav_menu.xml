@@ -28,6 +28,12 @@
             android:id="@+id/nav_terms"
             android:title="@string/nav_terms"/>
 
+        <item
+            android:id="@+id/stream"
+            android:title="스트림 버튼"
+            android:icon="@drawable/drone_basic"
+            app:showAsAction="never"/>
+
     </group>
 
 
