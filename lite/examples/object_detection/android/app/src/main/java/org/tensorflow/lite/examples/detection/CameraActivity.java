@@ -184,7 +184,8 @@ public abstract class CameraActivity extends AppCompatActivity
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.stream:
-        Toast.makeText(getApplicationContext(), "드론 Stream 연결", Toast.LENGTH_LONG).show();
+        //Video stream action 추가
+        Toast.makeText(getApplicationContext(), "드론 연결 중", Toast.LENGTH_LONG).show();
         return true;
       default:
         Toast.makeText(getApplicationContext(), "시도 중", Toast.LENGTH_LONG).show();

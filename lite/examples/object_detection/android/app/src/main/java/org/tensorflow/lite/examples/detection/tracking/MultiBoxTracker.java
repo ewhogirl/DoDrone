@@ -161,7 +161,7 @@ public class MultiBoxTracker {
       //            borderedText.drawText(canvas, trackedPos.left + cornerSize, trackedPos.top,
       // labelString);
       //결과 출력
-      Log.d("hand result", "hand detection : " + labelString);
+      Log.d("total result", "hand detection : " + labelString);
       Log.d("hand result", "recongition : " + recognition.title);
       borderedText.drawText(
           canvas, trackedPos.left + cornerSize, trackedPos.top, labelString + "%", boxPaint);
