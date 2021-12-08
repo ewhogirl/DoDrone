@@ -7,25 +7,70 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera2"/>
 
 
     <application
-        android:allowBackup="false"
+        android:requestLegacyExternalStorage="true"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/tfe_od_app_name"
+        android:label="두드론"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.ObjectDetection">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
+        >
 
         <activity
-            android:name=".DetectorActivity"
+            android:name=".DoDroneActivity"
             android:label="@string/tfe_od_app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".DetectorActivity"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".assemble.AssemblyMainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".assemble.AssemStep1Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".assemble.AssemStep2Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".assemble.AssemStep3Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".assemble.AssemStep4Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".assemble.AssemStep5Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".train.TrainMainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".train.TrainStep1Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".train.TrainStep2Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".train.TrainStep3Activity"
+            android:screenOrientation="landscape" />
+
 
     </application>
 </manifest>
