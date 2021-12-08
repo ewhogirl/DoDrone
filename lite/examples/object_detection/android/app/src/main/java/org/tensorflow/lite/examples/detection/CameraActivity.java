@@ -38,6 +38,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Size;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -52,6 +55,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import java.nio.ByteBuffer;
 import org.tensorflow.lite.examples.detection.env.ImageUtils;
 import org.tensorflow.lite.examples.detection.env.Logger;
+
 
 public abstract class CameraActivity extends AppCompatActivity
     implements OnImageAvailableListener,
@@ -168,6 +172,24 @@ public abstract class CameraActivity extends AppCompatActivity
 
     plusImageView.setOnClickListener(this);
     minusImageView.setOnClickListener(this);
+  }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu){
+    MenuInflater menuInflater = getMenuInflater();
+    menuInflater.inflate(R.menu.menu, menu);
+    return true;
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.stream:
+        Toast.makeText(getApplicationContext(), "드론 Stream 연결", Toast.LENGTH_LONG).show();
+        return true;
+      default:
+        Toast.makeText(getApplicationContext(), "시도 중", Toast.LENGTH_LONG).show();
+        return super.onOptionsItemSelected(item);
+    }
   }
 
   protected int[] getRgbBytes() {
