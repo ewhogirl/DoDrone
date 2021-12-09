@@ -1,5 +1,6 @@
 package org.tensorflow.lite.examples.detection;
 
+//Log.d("login-check", "this is resultCode"+result.getResultCode()+"\nthis is Activity.RESULT_OK\n"+(result.getResultCode()==Activity.RESULT_OK)+"?");
 
 import android.app.Activity;
 import android.content.Intent;
@@ -101,7 +102,6 @@ public class LoginActivity extends AppCompatActivity{
     }
 
 
-
     /* Login authorization functions*/
 
     private void createRequest() {
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity{
         @Override
         public void onActivityResult(ActivityResult result) {
 
-            Log.d("login-check", "this is resultCode"+result.getResultCode()+"\nthis is Activity.RESULT_OK");
+            Log.d("login-check", "this is resultCode "+result.getResultCode()+"\nthis is Activity.RESULT_OK");
             if (result.getResultCode() == Activity.RESULT_OK) {
                 Intent intent = result.getData();
 
@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity{
                     GoogleSignInAccount account = task.getResult(ApiException.class);
                     assert account != null;
                     firebaseAuthWithGoogle(account.getIdToken(), loginListener);
-                    Log.d("lgoin-check", "ActivityResultLauncher task onActivityResult mehthod");
+                    Log.d("login-check", "ActivityResultLauncher task onActivityResult method");
                 } catch (ApiException e) {
                     //Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

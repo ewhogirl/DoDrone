@@ -8,34 +8,42 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:83211148475:android:6e1e39f85c69c14ea61d9e",
+        "mobilesdk_app_id": "1:83211148475:android:2a95e1b31b4c4e30a61d9e",
         "android_client_info": {
-          "package_name": "com.example.dodrone"
+          "package_name": "org.tensorflow.lite.examples.detection"
         }
       },
       "oauth_client": [
         {
-          "client_id": "83211148475-hare3gti6ibmof0ia64krap16lc4o0ia.apps.googleusercontent.com",
+          "client_id": "83211148475-3fmlhmp3a5988dm97hmrjkcp38vv2ukj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.dodrone",
-            "certificate_hash": "e7e1a09f1e6429ff65e41db56533e4701760703b"
-          }
-        },
-        {
-          "client_id": "83211148475-ivn3g8fti052036g2fonlqtv73uo843j.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.dodrone",
+            "package_name": "org.tensorflow.lite.examples.detection",
             "certificate_hash": "6afa8b28f10abf7a83660fe650494c9a40b74bbe"
           }
         },
         {
-          "client_id": "83211148475-l2uldmt9cs0r20k76v11n5i7avbal9jd.apps.googleusercontent.com",
+          "client_id": "83211148475-b6ncshfs6vrl571r59rkt5asm069gtsc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.dodrone",
+            "package_name": "org.tensorflow.lite.examples.detection",
+            "certificate_hash": "e7e1a09f1e6429ff65e41db56533e4701760703b"
+          }
+        },
+        {
+          "client_id": "83211148475-judbkm83o5fqo4g76bol3n34fkf71bf9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.tensorflow.lite.examples.detection",
             "certificate_hash": "c87d1c836c1e5409e68670b5e340f32135b17b8a"
+          }
+        },
+        {
+          "client_id": "83211148475-kf3e966omm4sko459b6nlslacm8gqsjn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.tensorflow.lite.examples.detection",
+            "certificate_hash": "695bc4411b3bc2ac6d97a792171f1d72004f8ef4"
           }
         },
         {
@@ -53,43 +61,6 @@
           "other_platform_oauth_client": [
             {
               "client_id": "83211148475-08odtqj7h2odt5h550qifvnj0mnks14c.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:83211148475:android:2a95e1b31b4c4e30a61d9e",
-        "android_client_info": {
-          "package_name": "org.tensorflow.lite.examples.detection"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "83211148475-bqthhltb6b4un17cjac3vhcgimjt8rmi.apps.googleusercontent.com",
-          "client_type": 3,
-          "android_info": {
-            "package_name": "org.tensorflow.lite.examples.detection",
-            "certificate_hash": "e7e1a09f1e6429ff65e41db56533e4701760703b"
-          }
-        },
-        {
-          "client_id": "83211148475-bqthhltb6b4un17cjac3vhcgimjt8rmi.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBDVcvhkHJN3iEDGvN-hGk2iOL07bEa4mc"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "83211148475-bqthhltb6b4un17cjac3vhcgimjt8rmi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
