@@ -11,7 +11,7 @@
         android:layout_width="483dp"
         android:layout_height="70dp"
         android:background="@color/white"
-        android:drawableLeft="@drawable/drone_basic"
+        android:drawableLeft="@drawable/googleg_standard_color_18"
         android:paddingLeft="20dp"
         android:text="SIGN IN WITH GOOGLE"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
