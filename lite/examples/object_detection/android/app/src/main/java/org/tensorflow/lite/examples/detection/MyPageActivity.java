@@ -1,4 +1,6 @@
 package org.tensorflow.lite.examples.detection;
 
-public class MyPageActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MyPageActivity extends AppCompatActivity {
 }

@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "83211148475",
+    "firebase_url": "https://dodrone-4eebb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "dodrone-4eebb",
+    "storage_bucket": "dodrone-4eebb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83211148475:android:6e1e39f85c69c14ea61d9e",
+        "android_client_info": {
+          "package_name": "com.example.dodrone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83211148475-hare3gti6ibmof0ia64krap16lc4o0ia.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dodrone",
+            "certificate_hash": "e7e1a09f1e6429ff65e41db56533e4701760703b"
+          }
+        },
+        {
+          "client_id": "83211148475-ivn3g8fti052036g2fonlqtv73uo843j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dodrone",
+            "certificate_hash": "6afa8b28f10abf7a83660fe650494c9a40b74bbe"
+          }
+        },
+        {
+          "client_id": "83211148475-l2uldmt9cs0r20k76v11n5i7avbal9jd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dodrone",
+            "certificate_hash": "c87d1c836c1e5409e68670b5e340f32135b17b8a"
+          }
+        },
+        {
+          "client_id": "83211148475-08odtqj7h2odt5h550qifvnj0mnks14c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDVcvhkHJN3iEDGvN-hGk2iOL07bEa4mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83211148475-08odtqj7h2odt5h550qifvnj0mnks14c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83211148475:android:2a95e1b31b4c4e30a61d9e",
+        "android_client_info": {
+          "package_name": "org.tensorflow.lite.examples.detection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83211148475-bqthhltb6b4un17cjac3vhcgimjt8rmi.apps.googleusercontent.com",
+          "client_type": 3,
+          "android_info": {
+            "package_name": "org.tensorflow.lite.examples.detection",
+            "certificate_hash": "e7e1a09f1e6429ff65e41db56533e4701760703b"
+          }
+        },
+        {
+          "client_id": "83211148475-bqthhltb6b4un17cjac3vhcgimjt8rmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDVcvhkHJN3iEDGvN-hGk2iOL07bEa4mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83211148475-bqthhltb6b4un17cjac3vhcgimjt8rmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

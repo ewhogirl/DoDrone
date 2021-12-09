@@ -30,16 +30,32 @@
             android:name=".DoDroneActivity"
             android:label="두드론"
             android:screenOrientation="landscape">
+            
+        </activity>
+
+        <activity android:name=".ui.SplashActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        
         <activity
             android:name=".DetectorActivity"
             android:screenOrientation="landscape" />
 
+        <activity android:name="LoginActivity"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name=".MyPageActivity"
+            android:screenOrientation="landscape"/>
+        
+        <activity android:name=".ModifyUserInfoActivity"
+            android:screenOrientation="landscape"/>
+        
         <activity
             android:name=".assemble.AssemblyMainActivity"
             android:screenOrientation="landscape" />

@@ -127,7 +127,7 @@
         android:layout_gravity="end"
         android:background="#B3151515"
         app:headerLayout="@layout/layout_nav_header"
-        app:itemShapeFillColor="#FFFFFF"
+
         app:itemTextAppearance="@font/hyundai_m"
         app:itemTextColor="@color/white"
         app:menu="@menu/nav_menu" />

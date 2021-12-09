@@ -1,4 +1,6 @@
 package org.tensorflow.lite.examples.detection;
 
-public class ModifyUserInfoActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ModifyUserInfoActivity extends AppCompatActivity {
 }

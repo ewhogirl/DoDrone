@@ -34,6 +34,8 @@ import org.tensorflow.lite.examples.detection.train.TrainMainActivity;
 import org.tensorflow.lite.examples.detection.DetectorActivity;
 //import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 
@@ -48,22 +50,22 @@ public class DoDroneActivity extends AppCompatActivity{
     int char_num;
     int stat;
 
-    //FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
-    //User thisUser = new User();
-    //OnGetDataListener dataListener;
-    //private OnUserDataListener userListener = new OnUserDataListener() {
+    FirebaseUser currUser = FirebaseAuth.getInstance().getCurrentUser();
+    User thisUser = new User();
+    OnGetDataListener dataListener;
+    private OnUserDataListener userListener = new OnUserDataListener() {
         //@Override
-        //public void getUserDataStart() {
+        public void getUserDataStart() {
 
             //Log.d("user-class", "getting user data started");
-        //}
+        }
 
         //@Override
-        //public void getUserDataDone() {
-            //Log.d("user-class", "user data retrieved");
-            //setUI();
-        //}
-    //};
+        public void getUserDataDone() {
+            Log.d("user-class", "user data retrieved");
+            setUI();
+        }
+    };
 
 
     @Override
@@ -73,8 +75,8 @@ public class DoDroneActivity extends AppCompatActivity{
         setContentView(R.layout.activity_do_drone);
 
         Log.d("user-class", "intent val: "+stat);
-        setUI();
-        //thisUser.retrieveUserInfoForDoDrone(currUser, thisUser.listener, userListener);
+        //setUI();
+        thisUser.retrieveUserInfoForDoDrone(currUser, thisUser.listener, userListener);
 
     }
 
@@ -82,8 +84,8 @@ public class DoDroneActivity extends AppCompatActivity{
         assemBtn = findViewById(R.id.assemBtn);
         trainBtn = findViewById(R.id.trainBtn);
         ctrlBtn = findViewById(R.id.ctrlBtn);
-        //profile_img = findViewById(R.id.nav_header_profile_img);
-        //profile_nick = findViewById(R.id.nav_header_nick);
+        profile_img = findViewById(R.id.nav_header_profile_img);
+        profile_nick = findViewById(R.id.nav_header_nick);
 
 
 
@@ -116,15 +118,9 @@ public class DoDroneActivity extends AppCompatActivity{
             }
         });
 
-        /*findViewById(R.id.closeBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawer(GravityCompat.END);
-            }
-        });*/
 
-        //profile_img.setImageDrawable(profileChar(thisUser.char_num));
-        //profile_nick.setText(thisUser.nickname);
+        profile_img.setImageDrawable(profileChar(thisUser.char_num));
+        profile_nick.setText(thisUser.nickname);
         NavigationView navigationView = findViewById(R.id.navView);
         navigationView.setItemIconTintList(null);
     }
