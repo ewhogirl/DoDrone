@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -183,8 +184,11 @@ public class DoDroneActivity extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 Log.d("ctrl-alert", "ok clicked");
                 // 드론 연결 - 와이파이 선택 창
-                Intent intent = new Intent(getApplicationContext(), DetectorActivity .class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(), DetectorActivity .class);
+                //Intent intent = new Intent(getApplicationContext(), CtrlMainActivity .class);
+                //startActivity(intent);
+                Intent intentUrl = new Intent(Intent.ACTION_VIEW, Uri.parse("https://copycoding.tistory.com/"));
+                startActivity(intentUrl);
             }
         });
 
